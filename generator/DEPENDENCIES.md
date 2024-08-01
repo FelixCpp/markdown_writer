@@ -1,0 +1,61 @@
+# Project Dependency Table
+| Package | Version | License |
+| --- | --- | --- |
+| _fe_analyzer_shared | 68.0.0 | [![MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT) |
+| analyzer | 6.5.0 | [![MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT) |
+| args | 2.5.0 | [![MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT) |
+| async | 2.11.0 | [![MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT) |
+| boolean_selector | 2.1.1 | [![MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT) |
+| collection | 1.19.0 | [![MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT) |
+| convert | 3.1.1 | [![MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT) |
+| coverage | 1.8.0 | [![MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT) |
+| crypto | 3.0.3 | [![MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT) |
+| dart_pubspec_licenses | 3.0.1 | [![MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT) |
+| file | 7.0.0 | [![MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT) |
+| frontend_server_client | 4.0.0 | [![MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT) |
+| glob | 2.1.2 | [![MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT) |
+| http_multi_server | 3.2.1 | [![MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT) |
+| http_parser | 4.1.0 | [![MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT) |
+| io | 1.0.4 | [![MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT) |
+| js | 0.7.1 | [![MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT) |
+| json_annotation | 4.9.0 | [![MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT) |
+| lints | 3.0.0 | [![MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT) |
+| logger | 2.4.0 | [![MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT) |
+| logging | 1.2.0 | [![MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT) |
+| macros | 0.1.0-main.0 | [![MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT) |
+| matcher | 0.12.16+1 | [![MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT) |
+| meta | 1.15.0 | [![MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT) |
+| mime | 1.0.5 | [![MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT) |
+| node_preamble | 2.0.2 | [![MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT) |
+| package_config | 2.1.0 | [![MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT) |
+| parameterized_test | 2.0.0 | [![MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT) |
+| path | 1.9.0 | [![MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT) |
+| pool | 1.5.1 | [![MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT) |
+| pub_semver | 2.1.4 | [![MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT) |
+| shelf | 1.4.2 | [![MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT) |
+| shelf_packages_handler | 3.0.2 | [![MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT) |
+| shelf_static | 1.1.2 | [![MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT) |
+| shelf_web_socket | 2.0.0 | [![MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT) |
+| source_map_stack_trace | 2.1.1 | [![MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT) |
+| source_maps | 0.10.12 | [![MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT) |
+| source_span | 1.10.0 | [![MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT) |
+| stack_trace | 1.11.1 | [![MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT) |
+| stream_channel | 2.1.2 | [![MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT) |
+| string_scanner | 1.3.0 | [![MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT) |
+| term_glyph | 1.2.1 | [![MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT) |
+| test | 1.25.8 | [![MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT) |
+| test_api | 0.7.3 | [![MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT) |
+| test_core | 0.6.5 | [![MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT) |
+| typed_data | 1.3.2 | [![MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT) |
+| vm_service | 14.2.4 | [![MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT) |
+| watcher | 1.1.0 | [![MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT) |
+| web | 1.0.0 | [![MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT) |
+| web_socket | 0.1.6 | [![MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT) |
+| web_socket_channel | 3.0.1 | [![MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT) |
+| webkit_inspection_protocol | 1.2.1 | [![MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT) |
+| yaml | 3.1.2 | [![MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT) |
+## Dependencies### _fe_analyzer_sharedLogic that is shared between the front_end and analyzer packages.### analyzerThis package provides a library that performs static analysis of Dart code.### argsLibrary for defining parsers for parsing raw command-line arguments into a set of options and values using GNU and POSIX style options.### asyncUtility functions and classes related to the 'dart:async' library.### boolean_selectorA flexible syntax for boolean expressions, based on a simplified version of Dart's expression syntax.### collectionCollections and utilities functions and classes related to collections.### convertUtilities for converting between data representations. Provides a number of Sink, Codec, Decoder, and Encoder types.### coverageCoverage data manipulation and formatting### cryptoImplementations of SHA, MD5, and HMAC cryptographic functions.### dart_pubspec_licensesA library to make it easy to extract OSS license information from Dart packages using pubspec.yaml### fileA pluggable, mockable file system abstraction for Dart. Supports local file system access, as well as in-memory file systems, record-replay file systems, and chroot file systems.### frontend_server_clientClient code to start and interact with the frontend_server compiler from the Dart SDK.### globA library to perform Bash-style file and directory globbing.### http_multi_serverA dart:io HttpServer wrapper that handles requests from multiple servers.### http_parserA platform-independent package for parsing and serializing HTTP formats.### ioUtilities for the Dart VM Runtime including support for ANSI colors, file copying, and standard exit code values.### jsAnnotations to create static Dart interfaces for JavaScript APIs.### json_annotationClasses and helper functions that support JSON code generation via the `json_serializable` package.### lintsOfficial Dart lint rules. Defines the 'core' and 'recommended' set of lints suggested by the Dart team.
+### loggerSmall, easy to use and extensible logger which prints beautiful logs.### loggingProvides APIs for debugging and error logging, similar to loggers in other languages, such as the Closure JS Logger and java.util.logging.Logger.### macrosThis package is for macro authors, and exposes the APIs necessary to write a macro. It exports the APIs from the private `_macros` SDK vendored package.### matcherSupport for specifying test expectations via an extensible Matcher class. Also includes a number of built-in Matcher implementations for common cases.### metaAnnotations used to express developer intentions that can't otherwise be deduced by statically analyzing source code.### mimeUtilities for handling media (MIME) types, including determining a type from a file extension and file contents.### node_preambleBetter node.js preamble for dart2js, use it in your build system.### package_configSupport for reading and writing Dart Package Configuration files.### parameterized_testRun a test multiple times based on provided parameter list. Inspired by JUnit ParameterizedTest.### pathA string-based path manipulation library. All of the path operations you know and love, with solid support for Windows, POSIX (Linux and Mac OS X), and the web.### poolManage a finite pool of resources. Useful for controlling concurrent file system or network requests.### pub_semverVersions and version constraints implementing pub's versioning policy. This is very similar to vanilla semver, with a few corner cases.### shelfA model for web server middleware that encourages composition and easy reuse.
+### shelf_packages_handlerA shelf handler for serving a `packages/` directory.### shelf_staticStatic file server support for the shelf package and ecosystem.### shelf_web_socketA shelf handler that wires up a listener for every connection.
+### source_map_stack_traceA package for applying source maps to stack traces.### source_mapsA library to programmatically manipulate source map files.### source_spanProvides a standard representation for source code locations and spans.### stack_traceA package for manipulating stack traces and printing them readably.### stream_channelAn abstraction for two-way communication channels based on the Dart Stream class.### string_scannerA class for parsing strings using a sequence of patterns.### term_glyphUseful Unicode glyphs and ASCII substitutes.### testA full featured library for writing and running Dart tests across platforms.### test_apiThe user facing API for structuring Dart tests and checking expectations.### test_coreA basic library for writing tests and running them on the VM.### typed_dataUtility functions and classes related to the dart:typed_data library.### vm_serviceA library to communicate with a service implementing the Dart VM service protocol.### watcherA file system watcher. It monitors changes to contents of directories and sends notifications when files have been added, removed, or modified.### webLightweight browser API bindings built around JS interop.### web_socketAny easy-to-use library for communicating with WebSockets that has multiple implementations.### web_socket_channelStreamChannel wrappers for WebSockets. Provides a cross-platform WebSocketChannel API, a cross-platform implementation of that API that communicates over an underlying StreamChannel.### webkit_inspection_protocolA client for the Chrome DevTools Protocol (previously called the Webkit Inspection Protocol).
+### yamlA parser for YAML, a human-friendly data serialization standard

@@ -1,0 +1,39 @@
+{
+    "licenses": [
+        {
+            "name": "MIT",
+            "websiteUrl": "https://opensource.org/licenses/MIT",
+            "badgeUrl": "https://img.shields.io/badge/license-MIT-blue.svg"
+        },
+        {
+            "name": "Apache-2.0",
+            "websiteUrl": "https://www.apache.org/licenses/LICENSE-2.0",
+            "badgeUrl": "https://img.shields.io/badge/license-Apache%202-blue.svg"
+        },
+        {
+            "name": "GPL-3.0",
+            "websiteUrl": "https://www.gnu.org/licenses/gpl-3.0.html",
+            "badgeUrl": "https://img.shields.io/badge/license-GPL%203-blue.svg"
+        },
+        {
+            "name": "BSD-2-Clause",
+            "websiteUrl": "https://opensource.org/licenses/BSD-2-Clause",
+            "badgeUrl": "https://img.shields.io/badge/license-BSD%202-blue.svg"
+        },
+        {
+            "name": "BSD-3-Clause",
+            "websiteUrl": "https://opensource.org/licenses/BSD-3-Clause",
+            "badgeUrl": "https://img.shields.io/badge/license-BSD%203-blue.svg"
+        },
+        {
+            "name": "LGPL-3.0",
+            "websiteUrl": "https://www.gnu.org/licenses/lgpl-3.0.html",
+            "badgeUrl": "https://img.shields.io/badge/license-LGPL%203-blue.svg"
+        },
+        {
+            "name": "Unlicense",
+            "websiteUrl": "https://unlicense.org/",
+            "badgeUrl": "https://img.shields.io/badge/license-Unlicense-blue.svg"
+        }
+    ]
+}
