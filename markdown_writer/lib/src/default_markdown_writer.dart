@@ -113,7 +113,7 @@ final class DefaultMarkdownWriter implements MarkdownWriter {
   /// Complex structures
 
   @override
-  Markdown table(List<TableHeader> headers, List<List<String>> rows) {
+  Markdown table(List<TableHeader> headers, List<List<Markdown>> rows) {
     final buffer = StringBuffer();
 
     buffer.writeln('| ${headers.map((column) => column.header).join(' | ')} |');

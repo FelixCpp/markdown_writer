@@ -186,7 +186,7 @@ final class BufferingMarkdownWriter implements MarkdownWriter {
   /// Complex structures
 
   @override
-  Markdown table(List<TableHeader> headers, List<List<String>> rows) {
+  Markdown table(List<TableHeader> headers, List<List<Markdown>> rows) {
     final result = _writer.table(headers, rows);
     _buffer.writeln(result);
     return result;

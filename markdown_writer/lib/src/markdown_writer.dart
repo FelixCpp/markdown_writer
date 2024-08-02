@@ -43,7 +43,7 @@ abstract interface class MarkdownWriter {
 
   Markdown table(
     List<TableHeader> headers,
-    List<List<String>> rows,
+    List<List<Markdown>> rows,
   );
 
   Markdown list(List<ListItem> items);
