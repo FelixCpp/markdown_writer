@@ -48,5 +48,4 @@ abstract interface class MarkdownWriter {
   );
 
   Markdown list(List<ListItem> items);
-  Markdown taskList(List<TaskListItem> items);
 }

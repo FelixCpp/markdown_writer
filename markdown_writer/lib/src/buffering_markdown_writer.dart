@@ -199,11 +199,4 @@ final class BufferingMarkdownWriter implements MarkdownWriter {
     _buffer.writeln(result);
     return result;
   }
-
-  @override
-  Markdown taskList(List<TaskListItem> items) {
-    final result = _writer.taskList(items);
-    _buffer.writeln(result);
-    return result;
-  }
 }

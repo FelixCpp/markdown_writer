@@ -1,16 +1,14 @@
 import 'package:markdown_writer/markdown_writer.dart';
 
 abstract interface class ListItemIndicator {
-  Markdown toMarkdown(int index);
+  Markdown toMarkdown(String index);
 }
 
 final class OrderedListItemIndicator implements ListItemIndicator {
-  final int offset;
-
-  const OrderedListItemIndicator([this.offset = 1]);
+  const OrderedListItemIndicator();
 
   @override
-  Markdown toMarkdown(int index) => '${offset + index}.';
+  Markdown toMarkdown(String index) => '$index.';
 }
 
 enum UnorderedListItemIndicator implements ListItemIndicator {
@@ -19,7 +17,7 @@ enum UnorderedListItemIndicator implements ListItemIndicator {
   plus;
 
   @override
-  Markdown toMarkdown(int index) {
+  Markdown toMarkdown(String index) {
     return switch (this) {
       UnorderedListItemIndicator.asterisk => '*',
       UnorderedListItemIndicator.minus => '-',
@@ -31,35 +29,40 @@ enum UnorderedListItemIndicator implements ListItemIndicator {
 final class ListItem {
   final Markdown message;
   final ListItemIndicator indicator;
-  final int indentation;
+  final Iterable<ListItem> children;
 
   const ListItem(
     this.message, {
     this.indicator = UnorderedListItemIndicator.asterisk,
-    this.indentation = 0,
+    this.children = const [],
   });
 
-  Markdown toMarkdown(int index) {
-    final indentationString = '  ' * indentation;
-    final indicatorString = indicator.toMarkdown(index);
-    return '$indentationString$indicatorString $message';
+  Markdown toMarkdown({
+    required String index,
+    int indentation = 0,
+  }) {
+    final node = '${'  ' * indentation}${indicator.toMarkdown(index)} $message';
+    final nestedChildren = children.indexed.map((entry) {
+      final (childIndex, child) = entry;
+      return child.toMarkdown(
+        index: '$index.${childIndex + 1}',
+        indentation: indentation + 1,
+      );
+    });
+
+    return [node, ...nestedChildren].join('\n');
   }
 }
 
 final class TaskListItem extends ListItem {
-  final bool isChecked;
   const TaskListItem(
-    super.message, {
-    super.indicator,
-    super.indentation,
-    required this.isChecked,
-  });
-
-  @override
-  Markdown toMarkdown(int index) {
-    final indentationString = '  ' * indentation;
-    final indicatorString = indicator.toMarkdown(index);
-    final isCheckedString = isChecked ? 'x' : ' ';
-    return '$indentationString$indicatorString [$isCheckedString] $message';
-  }
+    String message, {
+    ListItemIndicator indicator = UnorderedListItemIndicator.asterisk,
+    Iterable<ListItem> children = const [],
+    required bool isChecked,
+  }) : super(
+          '[${isChecked ? 'x' : ' '}] $message',
+          indicator: indicator,
+          children: children,
+        );
 }

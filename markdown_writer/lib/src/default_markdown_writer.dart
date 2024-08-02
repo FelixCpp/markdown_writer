@@ -131,18 +131,10 @@ final class DefaultMarkdownWriter implements MarkdownWriter {
     final result = <Markdown>[];
 
     for (final (index, item) in items.indexed) {
-      result.add(item.toMarkdown(index));
-    }
-
-    return result.join('\n');
-  }
-
-  @override
-  Markdown taskList(List<TaskListItem> items) {
-    final result = <Markdown>[];
-
-    for (final (index, item) in items.indexed) {
-      result.add(item.toMarkdown(index));
+      result.add(item.toMarkdown(
+        index: '${index + 1}',
+        indentation: 0,
+      ));
     }
 
     return result.join('\n');
