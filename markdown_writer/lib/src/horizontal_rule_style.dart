@@ -1,15 +1,15 @@
 import 'package:markdown_writer/markdown_writer.dart';
 
 enum HorizontalRuleStyle {
-  asterisks,
-  dashes,
-  underscores;
+  asterisk,
+  dash,
+  underscore;
 
-  Markdown toMarkdown() {
+  Markdown toMarkdown(int count) {
     return switch (this) {
-      HorizontalRuleStyle.asterisks => '***',
-      HorizontalRuleStyle.dashes => '---',
-      HorizontalRuleStyle.underscores => '___',
+      HorizontalRuleStyle.asterisk => '*' * count,
+      HorizontalRuleStyle.dash => '-' * count,
+      HorizontalRuleStyle.underscore => '_' * count,
     };
   }
 }

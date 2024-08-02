@@ -32,7 +32,8 @@ abstract interface class MarkdownWriter {
 
   Markdown blockQuote(Iterable<Markdown> lines);
   Markdown horizontalRule([
-    HorizontalRuleStyle style = HorizontalRuleStyle.asterisks,
+    HorizontalRuleStyle style = HorizontalRuleStyle.asterisk,
+    int count = 3,
   ]);
   Markdown admonition(String type);
   Markdown alert(MarkdownAlertType type, Iterable<Markdown> lines);

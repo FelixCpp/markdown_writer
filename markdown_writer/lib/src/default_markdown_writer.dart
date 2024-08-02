@@ -76,9 +76,11 @@ final class DefaultMarkdownWriter implements MarkdownWriter {
 
   @override
   Markdown horizontalRule([
-    HorizontalRuleStyle style = HorizontalRuleStyle.asterisks,
+    HorizontalRuleStyle style = HorizontalRuleStyle.asterisk,
+    int count = 3,
   ]) {
-    return style.toMarkdown();
+    assert(count >= 3, 'Horizontal rule must have at least 3 characters');
+    return style.toMarkdown(count);
   }
 
   @override

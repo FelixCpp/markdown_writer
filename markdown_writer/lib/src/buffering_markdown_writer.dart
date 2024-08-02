@@ -139,9 +139,10 @@ final class BufferingMarkdownWriter implements MarkdownWriter {
 
   @override
   Markdown horizontalRule([
-    HorizontalRuleStyle style = HorizontalRuleStyle.asterisks,
+    HorizontalRuleStyle style = HorizontalRuleStyle.asterisk,
+    int count = 3,
   ]) {
-    final result = _writer.horizontalRule(style);
+    final result = _writer.horizontalRule(style, count);
     _buffer.writeln(result);
     return result;
   }
