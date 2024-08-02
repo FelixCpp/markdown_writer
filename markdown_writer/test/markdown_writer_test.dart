@@ -224,8 +224,8 @@ void main() {
       () => expect(
         writer.table(
           [
-            MarkdownHeader(writer.p('Name'), MarkdownTableAlignment.left),
-            MarkdownHeader(writer.p('Version'), MarkdownTableAlignment.right),
+            TableHeader(writer.p('Name'), TableAlignment.left),
+            TableHeader(writer.p('Version'), TableAlignment.right),
           ],
           [
             ['Dart', '2.14.4'],
@@ -238,6 +238,99 @@ void main() {
           '| Dart | 2.14.4 |\n'
           '| Flutter | 2.5.3 |\n',
         ),
+      ),
+    );
+
+    test(
+      'write table with center alignment',
+      () => expect(
+        writer.table(
+          [
+            TableHeader(writer.p('Name'), TableAlignment.center),
+            TableHeader(writer.p('Version'), TableAlignment.center),
+          ],
+          [
+            ['Dart', '2.14.4'],
+            ['Flutter', '2.5.3'],
+          ],
+        ),
+        equals(
+          '| Name | Version |\n'
+          '| :---: | :---: |\n'
+          '| Dart | 2.14.4 |\n'
+          '| Flutter | 2.5.3 |\n',
+        ),
+      ),
+    );
+
+    test(
+      'write table with no alignment',
+      () => expect(
+        writer.table(
+          [
+            TableHeader(writer.p('Name'), TableAlignment.none),
+            TableHeader(writer.p('Version'), TableAlignment.none),
+          ],
+          [
+            ['Dart', '2.14.4'],
+            ['Flutter', '2.5.3'],
+          ],
+        ),
+        equals(
+          '| Name | Version |\n'
+          '| --- | --- |\n'
+          '| Dart | 2.14.4 |\n'
+          '| Flutter | 2.5.3 |\n',
+        ),
+      ),
+    );
+  });
+
+  group('MarkdownWriter - Lists', () {
+    late MarkdownWriter writer;
+
+    setUp(() {
+      writer = DefaultMarkdownWriter();
+    });
+
+    test(
+      'write list',
+      () => expect(
+        writer.list([
+          ListItem(writer.p('Hello')),
+          ListItem(writer.p('World')),
+        ]),
+        equals('- Hello\n- World'),
+      ),
+    );
+
+    test(
+      'write task list',
+      () => expect(
+        writer.taskList([
+          TaskListItem(writer.p('Hello'), isChecked: true),
+          TaskListItem(writer.p('World'), isChecked: false),
+        ]),
+        equals('* [x] Hello\n* [ ] World'),
+      ),
+    );
+
+    test(
+      'write task list with custom bullet',
+      () => expect(
+        writer.taskList([
+          TaskListItem(
+            writer.p('Hello'),
+            indicator: OrderedListItemIndicator(),
+            isChecked: true,
+          ),
+          TaskListItem(
+            writer.p('World'),
+            indicator: UnorderedListItemIndicator.minus,
+            isChecked: false,
+          ),
+        ]),
+        equals('1. [x] Hello\n- [ ] World'),
       ),
     );
   });

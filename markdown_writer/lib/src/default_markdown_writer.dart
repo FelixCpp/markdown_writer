@@ -18,8 +18,7 @@ final class DefaultMarkdownWriter implements MarkdownWriter {
       switch (syntax) {
         HeadlineSyntax.core => '# $message${id.inject()}',
         HeadlineSyntax.alternative => '$message${id.inject()}\n=',
-      }
-          .toMarkdown();
+      };
 
   @override
   Markdown h2(
@@ -30,68 +29,60 @@ final class DefaultMarkdownWriter implements MarkdownWriter {
       switch (syntax) {
         HeadlineSyntax.core => '## $message${id.inject()}',
         HeadlineSyntax.alternative => '$message${id.inject()}\n-',
-      }
-          .toMarkdown();
+      };
   @override
-  Markdown h3(Markdown message, {String? id}) =>
-      '### $message${id.inject()}'.toMarkdown();
+  Markdown h3(Markdown message, {String? id}) => '### $message${id.inject()}';
   @override
-  Markdown h4(Markdown message, {String? id}) =>
-      '#### $message${id.inject()}'.toMarkdown();
+  Markdown h4(Markdown message, {String? id}) => '#### $message${id.inject()}';
   @override
-  Markdown h5(Markdown message, {String? id}) =>
-      '##### $message${id.inject()}'.toMarkdown();
+  Markdown h5(Markdown message, {String? id}) => '##### $message${id.inject()}';
   @override
   Markdown h6(Markdown message, {String? id}) =>
-      '###### $message${id.inject()}'.toMarkdown();
+      '###### $message${id.inject()}';
 
   /// Text
 
   @override
-  Markdown p(String message) => message.toMarkdown();
+  Markdown p(String message) => message;
   @override
-  Markdown bold(Markdown message) => '**$message**'.toMarkdown();
+  Markdown bold(Markdown message) => '**$message**';
   @override
-  Markdown italic(Markdown message) => '*$message*'.toMarkdown();
+  Markdown italic(Markdown message) => '*$message*';
   @override
-  Markdown boldItalic(Markdown message) => '***$message***'.toMarkdown();
+  Markdown boldItalic(Markdown message) => '***$message***';
   @override
-  Markdown highlight(Markdown message) => '===$message==='.toMarkdown();
+  Markdown highlight(Markdown message) => '===$message===';
   @override
-  Markdown strikeThrough(Markdown message) => '~~$message~~'.toMarkdown();
+  Markdown strikeThrough(Markdown message) => '~~$message~~';
 
   /// Code
 
   @override
-  Markdown coded(Markdown message) => '`$message`'.toMarkdown();
+  Markdown coded(Markdown message) => '`$message`';
   @override
   Markdown code(
     String message, {
     String? language,
     CodeFenceStyle style = CodeFenceStyle.tripleBackticks,
   }) {
-    return '${style.toMarkdown()}${language ?? ''}\n$message\n${style.toMarkdown()}'
-        .toMarkdown();
+    return '${style.toMarkdown()}${language ?? ''}\n$message\n${style.toMarkdown()}';
   }
 
   /// Styling
 
   @override
   Markdown blockQuote(Iterable<Markdown> lines) =>
-      lines.map((line) => '> $line').join('\n').toMarkdown();
+      lines.map((line) => '> $line').join('\n');
 
   @override
-  Markdown horizontalRule(HorizontalRuleStyle style) {
-    return switch (style) {
-      HorizontalRuleStyle.asterisks => '***',
-      HorizontalRuleStyle.dashes => '---',
-      HorizontalRuleStyle.underscores => '___',
-    }
-        .toMarkdown();
+  Markdown horizontalRule([
+    HorizontalRuleStyle style = HorizontalRuleStyle.asterisks,
+  ]) {
+    return style.toMarkdown();
   }
 
   @override
-  Markdown admonition(String type) => ':$type:'.toMarkdown();
+  Markdown admonition(String type) => ':$type:';
 
   @override
   Markdown alert(MarkdownAlertType type, Iterable<Markdown> lines) {
@@ -104,14 +95,14 @@ final class DefaultMarkdownWriter implements MarkdownWriter {
   @override
   Markdown comment(String commentName, String message) {
     assert(commentName.isNotEmpty, 'Comment name must not be empty');
-    return '[$commentName]: $message'.toMarkdown();
+    return '[$commentName]: $message';
   }
 
   /// Links
 
   @override
   Markdown link(MarkdownTextLink link, [Markdown? message]) {
-    return link.toMarkdown(message ?? link.link.toMarkdown());
+    return link.toMarkdown(message ?? link.link);
   }
 
   @override
@@ -122,7 +113,7 @@ final class DefaultMarkdownWriter implements MarkdownWriter {
   /// Complex structures
 
   @override
-  Markdown table(List<MarkdownHeader> headers, List<List<String>> rows) {
+  Markdown table(List<TableHeader> headers, List<List<String>> rows) {
     final buffer = StringBuffer();
 
     buffer.writeln('| ${headers.map((column) => column.header).join(' | ')} |');
@@ -130,37 +121,28 @@ final class DefaultMarkdownWriter implements MarkdownWriter {
         '| ${headers.map((column) => column.alignment.toMarkdown()).join(' | ')} |');
     buffer.writeln(rows.map((row) => '| ${row.join(' | ')} |').join('\n'));
 
-    return buffer.toString().toMarkdown();
+    return buffer.toString();
   }
 
   @override
   Markdown list(List<ListItem> items) {
-    final buffer = StringBuffer();
+    final result = <Markdown>[];
 
     for (final (index, item) in items.indexed) {
-      final indentation = '  ' * item.indentation;
-      final indicator = item.indicator.toMarkdown(index);
-      final message = item.message;
-
-      buffer.writeln('$indentation$indicator $message');
+      result.add(item.toMarkdown(index));
     }
 
-    return buffer.toString().toMarkdown();
+    return result.join('\n');
   }
 
   @override
   Markdown taskList(List<TaskListItem> items) {
-    final buffer = StringBuffer();
+    final result = <Markdown>[];
 
     for (final (index, item) in items.indexed) {
-      final indentation = '  ' * item.indentation;
-      final indicator = item.indicator.toMarkdown(index);
-      final message = item.message;
-      final isChecked = item.isChecked ? 'x' : ' ';
-
-      buffer.writeln('$indentation$indicator [$isChecked] $message');
+      result.add(item.toMarkdown(index));
     }
 
-    return buffer.toString().toMarkdown();
+    return result.join('\n');
   }
 }

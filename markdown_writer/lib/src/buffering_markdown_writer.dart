@@ -6,7 +6,7 @@ final class BufferingMarkdownWriter implements MarkdownWriter {
 
   BufferingMarkdownWriter(this._writer);
 
-  Markdown get content => _buffer.toString().toMarkdown();
+  Markdown get content => _buffer.toString();
 
   void insert(Markdown markdown) {
     _buffer.writeln(markdown);
@@ -138,7 +138,9 @@ final class BufferingMarkdownWriter implements MarkdownWriter {
   }
 
   @override
-  Markdown horizontalRule(HorizontalRuleStyle style) {
+  Markdown horizontalRule([
+    HorizontalRuleStyle style = HorizontalRuleStyle.asterisks,
+  ]) {
     final result = _writer.horizontalRule(style);
     _buffer.writeln(result);
     return result;
@@ -184,7 +186,7 @@ final class BufferingMarkdownWriter implements MarkdownWriter {
   /// Complex structures
 
   @override
-  Markdown table(List<MarkdownHeader> headers, List<List<String>> rows) {
+  Markdown table(List<TableHeader> headers, List<List<String>> rows) {
     final result = _writer.table(headers, rows);
     _buffer.writeln(result);
     return result;
