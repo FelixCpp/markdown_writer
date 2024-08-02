@@ -18,7 +18,7 @@ final class BufferingMarkdownWriter implements MarkdownWriter {
   Markdown h1(
     Markdown message, {
     String? id,
-    HeadlineSyntax syntax = HeadlineSyntax.core,
+    HeadlineSyntax syntax = const HeadlineSyntax.core(level: 1),
   }) {
     final result = _writer.h1(message, syntax: syntax, id: id);
     _buffer.writeln(result);
@@ -29,7 +29,7 @@ final class BufferingMarkdownWriter implements MarkdownWriter {
   Markdown h2(
     Markdown message, {
     String? id,
-    HeadlineSyntax syntax = HeadlineSyntax.core,
+    HeadlineSyntax syntax = const HeadlineSyntax.core(level: 2),
   }) {
     final result = _writer.h2(message, id: id, syntax: syntax);
     _buffer.writeln(result);

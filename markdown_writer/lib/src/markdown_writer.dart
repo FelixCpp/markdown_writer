@@ -4,12 +4,12 @@ abstract interface class MarkdownWriter {
   Markdown h1(
     Markdown message, {
     String? id,
-    HeadlineSyntax syntax = HeadlineSyntax.core,
+    HeadlineSyntax syntax = const HeadlineSyntax.core(level: 1),
   });
   Markdown h2(
     Markdown message, {
     String? id,
-    HeadlineSyntax syntax = HeadlineSyntax.core,
+    HeadlineSyntax syntax = const HeadlineSyntax.core(level: 2),
   });
   Markdown h3(Markdown message, {String? id});
   Markdown h4(Markdown message, {String? id});

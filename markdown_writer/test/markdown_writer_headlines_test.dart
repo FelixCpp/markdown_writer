@@ -10,10 +10,14 @@ void main() {
     parameterizedTest(
       'should generate expected output with given inputs',
       [
-        [HeadlineSyntax.core, null, '# $word'],
-        [HeadlineSyntax.alternative, null, '$word\n='],
-        [HeadlineSyntax.core, 'H1', '# $word {#H1}'],
-        [HeadlineSyntax.alternative, 'H1', '$word {#H1}\n='],
+        [const HeadlineSyntax.core(level: 1), null, '# $word'],
+        [const HeadlineSyntax.alternative(repetitions: 1), null, '$word\n='],
+        [const HeadlineSyntax.core(level: 1), 'H1', '# $word {#H1}'],
+        [
+          const HeadlineSyntax.alternative(repetitions: 1),
+          'H1',
+          '$word {#H1}\n='
+        ],
       ],
       (HeadlineSyntax syntax, String? id, String expected) {
         final Markdown result = writer.h1(word, syntax: syntax, id: id);

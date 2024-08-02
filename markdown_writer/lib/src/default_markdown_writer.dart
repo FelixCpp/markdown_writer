@@ -13,23 +13,20 @@ final class DefaultMarkdownWriter implements MarkdownWriter {
   Markdown h1(
     Markdown message, {
     String? id,
-    HeadlineSyntax syntax = HeadlineSyntax.core,
-  }) =>
-      switch (syntax) {
-        HeadlineSyntax.core => '# $message${id.inject()}',
-        HeadlineSyntax.alternative => '$message${id.inject()}\n=',
-      };
+    HeadlineSyntax syntax = const HeadlineSyntax.core(level: 1),
+  }) {
+    return syntax.format('$message${id.inject()}');
+  }
 
   @override
   Markdown h2(
     Markdown message, {
     String? id,
-    HeadlineSyntax syntax = HeadlineSyntax.core,
-  }) =>
-      switch (syntax) {
-        HeadlineSyntax.core => '## $message${id.inject()}',
-        HeadlineSyntax.alternative => '$message${id.inject()}\n-',
-      };
+    HeadlineSyntax syntax = const HeadlineSyntax.core(level: 2),
+  }) {
+    return syntax.format('$message${id.inject()}');
+  }
+
   @override
   Markdown h3(Markdown message, {String? id}) => '### $message${id.inject()}';
   @override
