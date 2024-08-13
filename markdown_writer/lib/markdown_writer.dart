@@ -1,13 +1,14 @@
 library markdown_writer;
 
-export './src/alert.dart';
-export './src/buffering_markdown_writer.dart';
-export './src/code.dart';
-export './src/default_markdown_writer.dart';
-export './src/headline.dart';
-export './src/horizontal_rule_style.dart';
-export './src/link.dart';
-export './src/list.dart';
-export './src/markdown.dart';
-export './src/markdown_writer.dart';
-export './src/table.dart';
+export 'src/divider.dart';
+export 'src/heading.dart';
+export 'src/linebreak.dart';
+export 'src/list.dart';
+export 'src/markdown.dart';
+export 'src/markdown_entry.dart';
+export 'src/markdown_writer.dart';
+export 'src/paragraph.dart';
+export 'src/quote.dart';
+export 'src/stylized.dart';
+export 'src/table.dart';
+export 'src/term.dart';

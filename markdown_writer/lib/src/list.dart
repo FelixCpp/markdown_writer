@@ -1,68 +1,110 @@
-import 'package:markdown_writer/markdown_writer.dart';
+import 'package:markdown_writer/src/markdown.dart';
+import 'package:markdown_writer/src/markdown_entry.dart';
 
-abstract interface class ListItemIndicator {
-  Markdown toMarkdown(String index);
+abstract class ListEntryPrefix {
+  Markdown build(String orderedIndex);
+  bool get isExpandable;
 }
 
-final class OrderedListItemIndicator implements ListItemIndicator {
-  const OrderedListItemIndicator();
-
-  @override
-  Markdown toMarkdown(String index) => '$index.';
-}
-
-enum UnorderedListItemIndicator implements ListItemIndicator {
-  asterisk,
+enum UnorderedListPrefixType implements MarkdownEntry {
   minus,
-  plus;
+  plus,
+  asterisk;
 
   @override
-  Markdown toMarkdown(String index) {
+  Markdown toMarkdown() {
     return switch (this) {
-      UnorderedListItemIndicator.asterisk => '*',
-      UnorderedListItemIndicator.minus => '-',
-      UnorderedListItemIndicator.plus => '+',
+      UnorderedListPrefixType.minus => '-',
+      UnorderedListPrefixType.plus => '+',
+      UnorderedListPrefixType.asterisk => '*',
     };
   }
 }
 
-final class ListItem {
-  final Markdown message;
-  final ListItemIndicator indicator;
-  final Iterable<ListItem> children;
+final class UnorderedListPrefix implements ListEntryPrefix {
+  final UnorderedListPrefixType type;
 
-  const ListItem(
-    this.message, {
-    this.indicator = UnorderedListItemIndicator.asterisk,
+  const UnorderedListPrefix({required this.type});
+
+  @override
+  Markdown build(String orderedIndex) {
+    return type.toMarkdown();
+  }
+
+  @override
+  bool get isExpandable => false;
+}
+
+final class OrderedListPrefix implements ListEntryPrefix {
+  @override
+  Markdown build(String orderedIndex) {
+    return '$orderedIndex.';
+  }
+
+  @override
+  bool get isExpandable => true;
+}
+
+class ListEntry implements MarkdownEntry {
+  final Markdown text;
+  final ListEntryPrefix prefix;
+  final List<ListEntry> children;
+  final String indentation;
+
+  const ListEntry({
+    required this.text,
+    required this.prefix,
     this.children = const [],
+    this.indentation = '  ',
   });
 
-  Markdown toMarkdown({
-    required String index,
-    int indentation = 0,
-  }) {
-    final node = '${'  ' * indentation}${indicator.toMarkdown(index)} $message';
-    final nestedChildren = children.indexed.map((entry) {
-      final (childIndex, child) = entry;
-      return child.toMarkdown(
-        index: '$index.${childIndex + 1}',
-        indentation: indentation + 1,
-      );
-    });
+  @override
+  Markdown toMarkdown({String level = '1', int indentationLevel = 0}) {
+    final indent = indentation * indentationLevel;
+    final item = '$indent${prefix.build(level.toString())} $text';
 
-    return [node, ...nestedChildren].join('\n');
+    if (children.isEmpty) {
+      return item;
+    }
+
+    return '$item\n${children.indexed.map((indexedChild) {
+      final (index, child) = indexedChild;
+      final nextLevel =
+          switch (prefix.isExpandable && child.prefix.isExpandable) {
+        true => '$level.${index + 1}',
+        false => '${index + 1}',
+      };
+
+      return child.toMarkdown(
+        level: nextLevel,
+        indentationLevel: indentationLevel + 1,
+      );
+    }).join('\n')}';
   }
 }
 
-final class TaskListItem extends ListItem {
-  const TaskListItem(
-    String message, {
-    ListItemIndicator indicator = UnorderedListItemIndicator.asterisk,
-    Iterable<ListItem> children = const [],
-    required bool isChecked,
+final class TaskListEntry extends ListEntry {
+  const TaskListEntry({
+    required Markdown text,
+    required bool isCompleted,
+    required super.prefix,
+    super.children,
+    super.indentation,
   }) : super(
-          '[${isChecked ? 'x' : ' '}] $message',
-          indicator: indicator,
-          children: children,
+          text: '[${isCompleted ? 'x' : ' '}] $text',
         );
+}
+
+class MarkdownList implements MarkdownEntry {
+  final List<ListEntry> entries;
+
+  const MarkdownList({this.entries = const []});
+
+  @override
+  Markdown toMarkdown() {
+    return entries.indexed.map((indexedEntry) {
+      final (index, entry) = indexedEntry;
+      return entry.toMarkdown(level: (index + 1).toString());
+    }).join('\n');
+  }
 }
